@@ -32,3 +32,17 @@ Creamos fichero nuevo /etc/telegraf/telegraf.d/00-influx.conf
    bucket = "telegraf"
 
 ![image](https://user-images.githubusercontent.com/20743678/197490156-9213bb9f-cc17-47a5-828d-4680454dccc4.png)
+
+systemctl restart telegraf
+
+systemctl status telegraf
+
+![image](https://user-images.githubusercontent.com/20743678/197490681-989bbee7-dc45-483c-b7ae-bf630a3f95b9.png)
+
+sudo apt-get install -y apt-transport-https
+
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+
