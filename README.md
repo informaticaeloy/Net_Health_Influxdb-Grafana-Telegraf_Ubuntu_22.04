@@ -48,3 +48,23 @@ echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/a
 sudo apt-get update
 
 sudo apt-get install grafana
+
+sudo systemctl start grafana-server
+
+sudo systemctl status grafana-server
+
+![image](https://user-images.githubusercontent.com/20743678/197492249-416645c5-6e9f-4888-baca-13779383ba13.png)
+
+sudo nano /etc/grafana/grafana.ini
+
+sudo systemctl restart grafana-server
+
+![image](https://user-images.githubusercontent.com/20743678/197493459-4a07a856-20a3-449f-a828-30dacef8c58c.png)
+
+![image](https://user-images.githubusercontent.com/20743678/197493637-6a881783-a3e9-420d-87ce-8a73163d1289.png)
+
+![image](https://user-images.githubusercontent.com/20743678/197494188-97e79bca-5c78-4c0f-bd74-c97addbf6aa6.png)
+
+![image](https://user-images.githubusercontent.com/20743678/197494926-6770fc67-1d76-4b93-bdf0-52731082864e.png)
+
+
