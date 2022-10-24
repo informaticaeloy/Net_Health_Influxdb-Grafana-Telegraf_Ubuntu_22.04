@@ -65,6 +65,8 @@ sudo systemctl restart grafana-server
 
 ![image](https://user-images.githubusercontent.com/20743678/197494188-97e79bca-5c78-4c0f-bd74-c97addbf6aa6.png)
 
-![image](https://user-images.githubusercontent.com/20743678/197494926-6770fc67-1d76-4b93-bdf0-52731082864e.png)
+![image](https://user-images.githubusercontent.com/20743678/197495246-e65db0d8-b927-4e35-b3f8-8769bc66333f.png)
+
+![image](https://user-images.githubusercontent.com/20743678/197495448-5771147e-3de6-4164-91d6-e1281c18d02e.png)
 
 
