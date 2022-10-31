@@ -32,19 +32,12 @@ Ahí creamos un input del tipo [[inputs.http]]. Dentro de él, creamos otro del 
 
 ```shell
  [[inputs.ping]]
- 
    name_suffix = "_Host"
- 
    urls = ["8.8.8.8"]
-   
    count = 4
-   
    ping_interval = 1.0
-   
    timeout = 2.0
-   
    [inputs.ping.tags]
-   
       nombre = "Google DNS"
 
  [[inputs.ping]]
