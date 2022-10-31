@@ -3,7 +3,7 @@
 ### 1. Creamos una cuenta FREE en IPINFO.IO
 
 ```shell
-https://ipinfo.io
+[https://ipinfo.io]https://ipinfo.io
 ```
 
 Nos darán un tóken:
@@ -16,5 +16,6 @@ Este tóken podemos utilizarlo directamente desde una shell y nos devuleve un JS
 curl ipinfo.io?token=43dafakefakeb43a
 ```
 
-![image](https://user-images.githubusercontent.com/20743678/198984404-44bffcff-f9a6-461d-a70f-62ca3256ddcb.png)
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198984404-44bffcff-f9a6-461d-a70f-62ca3256ddcb.png)</kbd>
 
+#### Warning - :skull: Haz un Snapshot :eyes:
