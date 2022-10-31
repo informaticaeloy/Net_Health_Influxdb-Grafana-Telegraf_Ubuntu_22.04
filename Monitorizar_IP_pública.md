@@ -3,7 +3,7 @@
 ### 1. Creamos una cuenta FREE en IPINFO.IO
 
 ```shell
-[https://ipinfo.io]https://ipinfo.io
+[https://ipinfo.io](https://ipinfo.io)
 ```
 
 Nos darán un tóken:
