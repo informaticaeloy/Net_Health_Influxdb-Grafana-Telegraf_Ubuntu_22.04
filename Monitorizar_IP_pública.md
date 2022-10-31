@@ -58,3 +58,56 @@ Ahí creamos un input del tipo [[inputs.http]]. Dentro de él, creamos otro del 
     [[inputs.http.json_v2.field]]
       path = "ip"
 ```
+
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198988588-4f8bf9fb-4b1c-422d-9c48-3ab7ef460904.png)</kbd>
+
+En la imagen, el apartado "interval="60s", lo hago por que la cuenta gratuita de ipinfo.io nos da 50K consultas al mes. Hacemos un cálculo para no pasarnos de ese número al mes:
+
+```shell
+50000 consultas / 30 días al mes / 24 horas al día / 60 minutos por hora = 1,157 consultas por minuto
+```
+
+Si hacemos una consulta cada 60 segundos (1 minuto) no nos pasaremos de las condiciones de nuestra cuenta FREE
+
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198989563-d9333b81-36ea-46d6-b012-3035da12c518.png)</kbd>
+
+#### IMPORTANTE: Se supone que ya tenemos nuestro InfluxDB, Grafana y Telegraf funcionando y comunicándosen entre ellos
+
+### 3. Crear un Dashboard en Grafana
+
+Para la visualización de estos datos en Grafana, he utilizado "Time Series" como tipo de gráfico para el tiempo medio de respuesta y "Discrete" para la monitorización de la IP Pública y el porcentaje de paquetes perdidos.
+
+Si no tienes "Discrete" puedes instalarlo desde la shell con el comando siguiente:
+
+```shell
+grafana-cli plugins install natel-discrete-panel
+```
+
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198990863-9bacb2f9-3815-4b5e-861d-ef092589e403.png)</kbd>
+
+#### 3.1 Panel para la IP Pública ("Discrete")
+
+Query en grafana para obtener la medicón relativa a la IP Pública:
+
+```shell
+from(bucket: "telegraf")
+  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
+  |> filter(fn: (r) =>
+    r._measurement == "IPINFO_IO" and
+    r._field == "ip"
+  )
+```
+
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198992429-96c40a78-cb16-47fe-8a3d-bd6b051b4aa7.png)</kbd>
+
+1- Visualización de las IPs públicas que vamos teniendo
+
+2- Tipo de visualización ("Discrete")
+
+3- He creado un "Color Mapping", para que el gráfivco tenga estos 3 colores conforme vaya cambiando la IP. En mi caso conozco los posibles valores de las IPS, por loq ue asigno un color a cada una de estas IPs.
+
+4- Código de la Query
+
+#### 3.2 Panel para el tiempo medio de respuesta del Ping ("Time Series")
+
+#### 3.3 Panel para el porcentaje de paquetes perdidos ("Discrete")
