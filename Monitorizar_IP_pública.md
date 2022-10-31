@@ -110,4 +110,47 @@ from(bucket: "telegraf")
 
 #### 3.2 Panel para el tiempo medio de respuesta del Ping ("Time Series")
 
+Query en grafana para el tiempo medio de respuesta del ping
+
+```shell
+from(bucket: "telegraf")
+  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
+  |> filter(fn: (r) =>
+    r._measurement == "ping" and
+    r._field == "average_response_ms"
+  )
+```
+
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198993214-41d508fd-8a77-493a-9493-a371d4982871.png)</kbd>
+
+1- Visualización del tiempo medio de respuesta del ping a la IP 8.8.8.8 y a www.microsoft.com
+
+2- Tipo de visualización "Time series"
+
+3- Código de la Query
+
 #### 3.3 Panel para el porcentaje de paquetes perdidos ("Discrete")
+
+Query en Grafana para el porcentaje de paquetes perdidos:
+
+```shell
+from(bucket: "telegraf")
+  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
+  |> filter(fn: (r) =>
+    r._measurement == "ping" and
+    r._field == "percent_packet_loss"
+  )
+ ```  
+ 
+<kbd>![image](https://user-images.githubusercontent.com/20743678/198995546-66126aef-b15a-4906-8994-b89fd7501015.png)</kbd>
+
+
+1- Visualización del porcentaje de paquetes perdidos del ping a la IP 8.8.8.8 y a www.microsoft.com
+
+2- Tipo de visualización "Discrete"
+
+3- Código de la Query
+
+#### Warning - :skull: Haz un Snapshot :eyes:
+
+#### Enjoy :wink:
