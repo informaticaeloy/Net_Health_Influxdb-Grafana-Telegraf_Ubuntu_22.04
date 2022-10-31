@@ -30,7 +30,7 @@ Sobre la línea 6650 (en mi caso) tenemos los inputs. En mi ejemplo tengo dos de
 
 Ahí creamos un input del tipo [[inputs.http]]. Dentro de él, creamos otro del tipo [[inputs.http.json_v2]] con el que leeremos el JSON devuelto por la consulta anterior y nos quedaremos sólo con el dato de la IP pública, mediante [[inputs.http.json_v2.field]] y path = "ip":
 
-´´´shell
+```shell
  [[inputs.ping]]
  
    name_suffix = "_Host"
